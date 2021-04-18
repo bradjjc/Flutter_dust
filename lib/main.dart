@@ -29,9 +29,9 @@ class _MainState extends State<Main> {
   AirResult _result;
 
   Future<AirResult> fetchData() async {
-    var uri = Uri.parse(
-        'http://api.airvisual.com/v2/nearest_city?key=2905a9a0-8a88-4178-bf53-60bbf9d9385b');
-    var response = await http.get(uri);
+    var url = Uri.parse(
+        'http://api.airvisual.com/v2/nearest_city?key={2905a9a0-8a88-4178-bf53-60bbf9d9385b}');
+    var response = await http.get(url);
 
     AirResult result = AirResult.fromJson(json.decode(response.body));
 
@@ -41,7 +41,7 @@ class _MainState extends State<Main> {
   @override
   void initState() {
     super.initState();
-
+    // airResult
     fetchData().then((airResult) {
       setState(() {
         _result = airResult;
@@ -93,7 +93,9 @@ class _MainState extends State<Main> {
                                 Row(
                                   children: [
                                     Image.network(
-                                        'https://airvisula.com/images/${_result.data.current.weather.ic}.png', width: 32, height: 32,
+                                      'https://airvisula.com/images/${_result.data.current.weather.ic}.png',
+                                      width: 32,
+                                      height: 32,
                                     ),
                                     SizedBox(
                                       width: 16,

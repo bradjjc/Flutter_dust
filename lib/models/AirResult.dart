@@ -36,7 +36,7 @@ class Data {
         ? new Location.fromJson(json['location'])
         : null;
     current =
-    json['current'] != null ? new Current.fromJson(json['current']) : null;
+        json['current'] != null ? new Current.fromJson(json['current']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -81,7 +81,7 @@ class Current {
 
   Current.fromJson(Map<String, dynamic> json) {
     weather =
-    json['weather'] != null ? new Weather.fromJson(json['weather']) : null;
+        json['weather'] != null ? new Weather.fromJson(json['weather']) : null;
     pollution = json['pollution'] != null
         ? new Pollution.fromJson(json['pollution'])
         : null;
